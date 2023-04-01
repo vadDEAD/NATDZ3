@@ -19,7 +19,7 @@ public class CallBackService {
 
     @BeforeAll
     static void setUpAll() {
-        System.setProperty("webdriver.chrome.driver", ".drivers/win/chromedriver.exe/");
+        System.setProperty("webdriver.chrome.driver", "./drivers/win/chromedriver.exe/");
     }
 
     @BeforeEach
