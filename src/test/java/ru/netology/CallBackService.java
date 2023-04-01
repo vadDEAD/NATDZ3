@@ -31,11 +31,6 @@ public class CallBackService {
         driver = new ChromeDriver(options);
     }
 
-    @BeforeEach
-    void setUp() {
-        driver = new ChromeDriver();
-    }
-
     @AfterEach
     void tearDown() {
         driver.quit();
@@ -43,7 +38,7 @@ public class CallBackService {
     }
 
     @Test
-    void Test1AllInput(){
+    void Test1AllInput() {
         driver.get("http://localhost:9999/");
         WebElement form = driver.findElement(By.cssSelector("[class] form"));
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Текст");
@@ -56,7 +51,7 @@ public class CallBackService {
     }
 
     @Test
-    void Test2NameWithSpace(){
+    void Test2NameWithSpace() {
         driver.get("http://localhost:9999/");
         WebElement form = driver.findElement(By.cssSelector("[class] form"));
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Текст текст");
@@ -67,8 +62,9 @@ public class CallBackService {
         String actual = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText().trim();
         assertEquals(expected, actual);
     }
+
     @Test
-    void Test3NameWithHyphen(){
+    void Test3NameWithHyphen() {
         driver.get("http://localhost:9999/");
         WebElement form = driver.findElement(By.cssSelector("[class] form"));
         driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Текст-текст");
