@@ -18,15 +18,15 @@ public class CallBackService {
 
     @BeforeAll
     static  void setUpAll() {
-       ChromeOptions options = new ChromeOptions();
-       options.addArguments("--disable-dev-shm-usage");
-       options.addArguments("--no-sandbox");
-       options.addArguments("--headless");
         System.setProperty("webdriver.chrome.driver", "./drivers/win/chromedriver.exe");
     }
 
     @BeforeEach
     void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
     @AfterEach
