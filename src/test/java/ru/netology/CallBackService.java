@@ -12,14 +12,17 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CallBackService {
-    private WebDriver driver;
+    private static WebDriver driver;
     private static ChromeOptions options;
 
 
     @BeforeAll
     static  void setUpAll() {
-            options = new ChromeOptions();
-            options.addArguments("--headless");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         System.setProperty("webdriver.chrome.driver", "./drivers/win/chromedriver.exe");
     }
 
