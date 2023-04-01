@@ -1,4 +1,4 @@
-package ru.netology.rest;
+package ru.netology;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,15 +18,13 @@ public class CallBackService {
 
     @BeforeAll
     static  void setUpAll() {
+            options = new ChromeOptions();
+            options.addArguments("--headless");
         System.setProperty("webdriver.chrome.driver", "./drivers/win/chromedriver.exe");
     }
 
     @BeforeEach
     void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--headless");
         driver = new ChromeDriver(options);
     }
     @AfterEach
@@ -68,5 +66,6 @@ public class CallBackService {
         String actual = driver.findElement(By.tagName("p")).getText().trim();
         assertEquals(expected, actual);
     }
+
 
 }
